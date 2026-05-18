@@ -57,8 +57,11 @@ dependencies {
     // Core module (resources, launcher icons)
     implementation(project(":core"))
 
-    // Runtime dependencies
+    // Runtime dependencies (some may be provided transitively by extensions-lib)
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("org.jsoup:jsoup:1.17.2")
+    implementation("com.squareup.okio:okio:3.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.6.0")
+    implementation("com.github.injekt:injekt-core:1.3.1")
 }

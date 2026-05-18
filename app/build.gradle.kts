@@ -1,5 +1,4 @@
 plugins {
-    // Use the explicit plugin ID instead of the alias
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
@@ -12,11 +11,21 @@ android {
         minSdk = 21
     }
 
+    // JVM compatibility configuration inside the android block
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
     sourceSets {
         getByName("main") {
-            // Explicitly point to the manifest in the core module
+            // Pointing to the manifest in the core module
             manifest.srcFile("core/src/main/AndroidManifest.xml")
-            // Include source code
+            // Include source code from current module
             java.srcDirs("src/main/kotlin")
         }
     }

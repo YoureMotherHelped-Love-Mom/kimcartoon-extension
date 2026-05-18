@@ -63,5 +63,4 @@ dependencies {
     implementation("com.squareup.okio:okio:3.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.6.0")
-    implementation("com.github.injekt:injekt-core:1.3.1")
 }

@@ -54,6 +54,9 @@ dependencies {
     // Aniyomi extension API (compileOnly — provided by the host app at runtime)
     compileOnly("com.github.aniyomiorg:extensions-lib:v16")
 
+    // Core module (resources, launcher icons)
+    implementation(project(":core"))
+
     // Runtime dependencies
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("org.jsoup:jsoup:1.17.2")

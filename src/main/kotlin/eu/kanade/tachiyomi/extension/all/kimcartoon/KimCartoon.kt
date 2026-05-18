@@ -1,23 +1,21 @@
 package eu.kanade.tachiyomi.extension.all.kimcartoon
 
+import eu.kanade.tachiyomi.animesource.model.*
+import eu.kanade.tachiyomi.animesource.online.ParsedAnimeHttpSource
 import eu.kanade.tachiyomi.network.GET
-import eu.kanade.tachiyomi.source.model.*
-import eu.kanade.tachiyomi.source.online.ParsedHttpSource
 import okhttp3.Headers
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 
-class KimCartoon : ParsedHttpSource() {
+class KimCartoon : ParsedAnimeHttpSource() {
     override val name = "KimCartoon"
     override val baseUrl = "https://kimcartoon.si"
     override val lang = "all"
     override val supportsLatest = true
 
-    override val client: OkHttpClient = network.cloudflareClient.newBuilder()
-        .addCloudflareInterceptor()
-        .build()
+    override val client: OkHttpClient = network.cloudflareClient
 
     override fun headersBuilder(): Headers.Builder = super.headersBuilder()
         .add("Referer", baseUrl)

@@ -1,7 +1,7 @@
 plugins {
-    // Change to library plugin
-    alias(libs.plugins.android.library) 
-    alias(libs.plugins.kotlin.android)
+    // Use the explicit plugin ID instead of the alias
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -14,8 +14,9 @@ android {
 
     sourceSets {
         getByName("main") {
-            // Point to the correct source and manifest paths
+            // Explicitly point to the manifest in the core module
             manifest.srcFile("core/src/main/AndroidManifest.xml")
+            // Include source code
             java.srcDirs("src/main/kotlin")
         }
     }

@@ -18,14 +18,6 @@ android {
         manifestPlaceholders["appName"] = "KimCartoon"
     }
 
-    applicationVariants.configureEach {
-        if (name == "release") {
-            outputs.configureEach {
-                outputFileName = "aniyomi-all.kimcartoon-v${versionName}.apk"
-            }
-        }
-    }
-
     signingConfigs {
         create("release") {
             storeFile = rootProject.file("release.keystore")

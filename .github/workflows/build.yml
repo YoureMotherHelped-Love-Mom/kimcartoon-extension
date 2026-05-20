@@ -48,7 +48,8 @@ jobs:
       - name: Prepare Repository
         run: |
           mkdir -p repo-output/apk
-          find . -path "*/build/outputs/apk/release/*.apk" -type f -exec cp {} repo-output/apk/ \;
+          apk_path=$(find . -path "*/build/outputs/apk/release/*.apk" -type f | head -1)
+          cp "$apk_path" "repo-output/apk/eu.kanade.tachiyomi.extension.all.kimcartoon-v1.0.0.apk"
           cp .github/scripts/create-repo.py repo-output/
 
       - name: Generate Index

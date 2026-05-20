@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-feature android:name="tachiyomi.extension" />
+    <uses-feature android:name="tachiyomi.extension" android:required="false" />
 
-    <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="false"
+        android:label="${appName}"
+        android:extractNativeLibs="true">
 
-        <meta-data android:name="tachiyomi.extension.class" android:value="${extClass}" />
-        <meta-data android:name="tachiyomi.extension.nsfw" android:value="${nsfw}" />
+        <meta-data
+            android:name="tachiyomi.extension.class"
+            android:value="${extClass}" />
+        <meta-data
+            android:name="tachiyomi.extension.nsfw"
+            android:value="${nsfw}" />
+
+        <activity
+            android:name=".LauncherActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

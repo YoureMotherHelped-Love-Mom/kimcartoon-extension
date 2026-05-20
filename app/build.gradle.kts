@@ -5,16 +5,25 @@ plugins {
 
 android {
     namespace = "eu.kanade.tachiyomi.extension.all.kimcartoon"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 21
+        targetSdk = 35
         applicationId = "eu.kanade.tachiyomi.extension.all.kimcartoon"
         versionCode = 1
         versionName = "1.0.0"
         manifestPlaceholders["extClass"] = "eu.kanade.tachiyomi.extension.all.kimcartoon.KimCartoon"
         manifestPlaceholders["nsfw"] = false
         manifestPlaceholders["appName"] = "KimCartoon"
+    }
+
+    applicationVariants.configureEach {
+        if (name == "release") {
+            outputs.configureEach {
+                outputFileName = "aniyomi-all.kimcartoon-v${versionName}.apk"
+            }
+        }
     }
 
     signingConfigs {

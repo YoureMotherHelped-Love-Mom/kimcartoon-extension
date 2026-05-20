@@ -28,6 +28,8 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          platforms-version: "35"
 
       - name: Make gradlew executable
         run: chmod +x gradlew
